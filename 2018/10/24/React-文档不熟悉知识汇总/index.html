@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="liyawen">
+
+
+
+<meta name="description" content="总结了对文档内出现不熟知的知识点，希望之后能一一深入学习理解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 文档不熟悉知识汇总">
+<meta property="og:url" content="https://liyawen.github.io/2018/10/24/React-文档不熟悉知识汇总/index.html">
+<meta property="og:site_name" content="liyawen&#39;s blog">
+<meta property="og:description" content="总结了对文档内出现不熟知的知识点，希望之后能一一深入学习理解">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-10-24T12:50:52.967Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React 文档不熟悉知识汇总">
+<meta name="twitter:description" content="总结了对文档内出现不熟知的知识点，希望之后能一一深入学习理解">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="liyawen&#39;s blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/bitbug_favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>React 文档不熟悉知识汇总 | liyawen&#39;s blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.jpeg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">liyawen</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">李雅雯的博客</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/liyawen1209@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/liyawen" title="GitHub"></a>
+                            
+                                <a class="fa QQ" href="/413235793" title="QQ"></a>
+                            
+                                <a class="fa 微信" href="/HDNE2007" title="微信"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">liyawen</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.jpeg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">liyawen</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">李雅雯的博客</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/liyawen1209@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/liyawen" title="GitHub"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="/413235793" title="QQ"></a>
+                            
+                                <a class="fa 微信" target="_blank" href="/HDNE2007" title="微信"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-React-文档不熟悉知识汇总" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/10/24/React-文档不熟悉知识汇总/" class="article-date">
+      <time datetime="2018-10-24T12:09:08.000Z" itemprop="datePublished">2018-10-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React 文档不熟悉知识汇总
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="React-官方文档"><a href="#React-官方文档" class="headerlink" title="React 官方文档"></a>React 官方文档</h2><h3 id="理解："><a href="#理解：" class="headerlink" title="理解："></a>理解：</h3><ul>
+<li><p>React 可以将多个setState() 调用合并成一个调用来提高性能，所以 this.props​ 与 this.state 是异步更新的，若想根据上个state来更新state，则如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.setState((prevState, props) =&gt; (&#123;</span><br><span class="line">  count: prevState.count + props.num</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>React 中，事件处理函数中阻止默认行为不能返回 false ，而是用  e.preventDefault(); 来解决 , e 是个合成事件，已解决了跨浏览器兼容问题；通过箭头函数，e 必须显示进行传递，但是通过 bind 的方式，事件对象以及更多的参数将会被隐式进行传递。</p>
+</li>
+<li>数组元素必须为每个项配置一个key，并且在其兄弟中是独一无二的，并不需要在全局中唯一</li>
+<li><strong>状态提升</strong>：任何可变的数据理应只有一个单一数据源，应在应用中保持自上而下的数据流，也就是把两个及以上组件共同使用的数据提升到其父组件上，而不是在不同组件中同步状态。</li>
+<li>如果某些数据既可用 state 又可用 props 提供，那么它很有可能不应该在 state 中出现。</li>
+<li>如果一个数据不是动态改变并且影响到渲染的，那么就不应该添加在 state 里。</li>
+<li><strong>单一功能原则</strong>：尽量维持一个组件只做一件事情，如果这个组件的功能不断丰富，它应该被分成更小的组件</li>
+<li>JSX 只是为了 <code>React.createElement(component, props, children)</code> 方法提供了语法糖。</li>
+<li><p>Context 提供了一种在组件之间共享数据的方式，而不必通过组件树的每个层级显式地传递 props 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const &#123;Provider, Consumer&#125; = React.createContext(defaultValue);</span><br><span class="line"></span><br><span class="line">&lt;Provider value=&#123;/* some value */&#125;&gt;</span><br><span class="line"></span><br><span class="line">&lt;Consumer&gt;</span><br><span class="line">  &#123;value =&gt; /* render something based on the context value */&#125;</span><br><span class="line">&lt;/Consumer&gt;</span><br></pre></td></tr></table></figure>
+<p>每当Provider的值发送改变时, 作为Provider后代的所有Consumers都会重新渲染。 从Provider到其后代的Consumers传播不受shouldComponentUpdate方法的约束，因此即使祖先组件退出更新时，后代Consumer也会被更新。</p>
+<p>高阶组件封装context</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const ThemeContext = React.createContext(&apos;light&apos;);</span><br><span class="line"></span><br><span class="line">// 在函数中引入组件</span><br><span class="line">export function withTheme(Component) &#123;</span><br><span class="line">  // 然后返回另一个组件</span><br><span class="line">  return function ThemedComponent(props) &#123;</span><br><span class="line">    // 最后使用context theme渲染这个被封装组件</span><br><span class="line">    // 注意我们照常引用了被添加的属性</span><br><span class="line">    return (</span><br><span class="line">      &lt;ThemeContext.Consumer&gt;</span><br><span class="line">        &#123;theme =&gt; &lt;Component &#123;...props&#125; theme=&#123;theme&#125; /&gt;&#125;</span><br><span class="line">      &lt;/ThemeContext.Consumer&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="了解："><a href="#了解：" class="headerlink" title="了解："></a>了解：</h3><ul>
+<li>使用propTypes进行props类型检查，如 <code>Demo.propTypes = {...};</code> ，出于性能原因， propTypes只在开发模式下进行检查</li>
+<li><p><strong>Refs</strong>: 不能在函数式组件上使用 ref 属性，因为它们没有实例；当 ref 属性被用于一个普通的 HTML 元素时，React.createRef() 将接收底层 DOM 元素作为它的 current 属性以创建 ref；当 ref 属性被用于一个自定义类组件时，ref 对象将接收该组件已挂载的实例作为它的 current 。ref 的更新会发生在componentDidMount 或 componentDidUpdate 生命周期钩子之前</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class CustomTextInput extends React.Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    // 创建 ref 存储 textInput DOM 元素</span><br><span class="line">    this.textInput = React.createRef();</span><br><span class="line">    this.focusTextInput = this.focusTextInput.bind(this);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  focusTextInput() &#123;</span><br><span class="line">    // 直接使用原生 API 使 text 输入框获得焦点</span><br><span class="line">    // 注意：通过 &quot;current&quot; 取得 DOM 节点</span><br><span class="line">    this.textInput.current.focus();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    // 告诉 React 我们想把 &lt;input&gt; ref 关联到构造器里创建的 `textInput` 上</span><br><span class="line">    return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;input</span><br><span class="line">      type=&quot;text&quot;</span><br><span class="line">      ref=&#123;this.textInput&#125; /&gt;</span><br><span class="line">      </span><br><span class="line">      &lt;input</span><br><span class="line">      type=&quot;button&quot;</span><br><span class="line">      value=&quot;Focus the text input&quot;</span><br><span class="line">      onClick=&#123;this.focusTextInput&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>  一个关于渲染属性API的问题是 refs 不会自动的传递给被封装的元素。为了解决这个问题，使用 React.forwardRef<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class FancyButton extends React.Component &#123;</span><br><span class="line">  focus() &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 使用 context 传递当前的 &quot;theme&quot; 给 FancyButton.</span><br><span class="line">// 使用 forwardRef 传递 refs 给 FancyButton 也是可以的.</span><br><span class="line">export default React.forwardRef((props, ref) =&gt; (</span><br><span class="line">  &lt;ThemeContext.Consumer&gt;</span><br><span class="line">    &#123;theme =&gt; (</span><br><span class="line">      &lt;FancyButton &#123;...props&#125; theme=&#123;theme&#125; ref=&#123;ref&#125; /&gt;</span><br><span class="line">    )&#125;</span><br><span class="line">  &lt;/ThemeContext.Consumer&gt;</span><br><span class="line">));</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><strong>协同算法</strong>：<ol>
+<li>两个不同类型的元素将产生不同的树。</li>
+<li>通过渲染器附带key属性，开发者可以示意哪些子元素可能是稳定的。</li>
+<li>当对比两棵树时，React首先比较两个根节点。每当根元素有不同类型，React将卸载旧树并重新构建新树。</li>
+<li>当比较两个相同类型的React DOM元素时，React则会观察二者的属性，保持相同的底层DOM节点，并仅更新变化的属性。当组件更新时，实例仍保持一致，以让状态能够在渲染之间保留</li>
+<li>当递归DOM节点的子节点，React仅在同一时间点递归两个子节点列表，并在有不同时产生一个变更。为解决该问题，React支持了一个key属性。当子节点有key时，React使用key来匹配原本树的子节点和新树的子节点。</li>
+<li>Keys应该是稳定的，可预测的，且唯一的。不稳定的key（类似由Math.random()生成的）将使得大量组件实例和DOM节点进行不必要的重建，使得性能下降并丢失子组件的状态。</li>
+</ol>
+</li>
+<li>Fragments: React 中一个常见模式是为一个组件返回多个元素。Fragments 可以让你聚合一个子元素列表，并且不在DOM中增加额外节点。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;&gt;   // fragments</span><br><span class="line">      &lt;ChildA /&gt;</span><br><span class="line">      &lt;ChildB /&gt;</span><br><span class="line">      &lt;ChildC /&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>###初次知道：</p>
+<ul>
+<li>静态类型检查：使用 Flow 和 TypeScript 静态类型检查器可以在运行代码之前识别某些类型问题</li>
+<li>Create React App</li>
+<li>uglify-js-brunch</li>
+<li>Browserify</li>
+<li>Rollup</li>
+<li>使用 Chrome Performance 归档组件</li>
+<li>Immutable.js是解决这个问题的另一种方法。它通过结构共享提供不可突变的，持久的集合：</li>
+<li>Portals 提供了一种很好的将子节点渲染到父组件以外的 DOM 节点的方式。第一个参数（child）是任何可渲染的 React 子元素，例如一个元素，字符串或碎片。第二个参数（container）则是一个 DOM 元素。对于 portal 的一个典型用例是当父组件有 overflow: hidden 或 z-index 样式，但你需要子组件能够在视觉上“跳出（break out）”其容器。例如，对话框、hovercards以及提示框：<br><code>ReactDOM.createPortal(child, container)</code></li>
+<li><p><strong>错误边界:</strong> 如果一个类组件定义了一个名为 componentDidCatch(error, info): 的新方法，则其成为一个错误边界</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">componentDidCatch(error, info) &#123;</span><br><span class="line">  // Display fallback UI</span><br><span class="line">  this.setState(&#123; hasError: true &#125;);</span><br><span class="line">  // You can also log the error to an error reporting service</span><br><span class="line">  logErrorToMyService(error, info);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>web组件 </p>
+</li>
+<li>虚拟DOM（VDOM）是一种编程概念，是指虚拟的视图被保存在内存中，并通过诸如ReactDOM这样的库与“真实”的DOM保持同步。这个过程被称为和解。fiber是React 16中新的和解引擎。它的主要目的是使虚拟DOM能够进行增量渲染</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/10/24/React-文档不熟悉知识汇总/">React 文档不熟悉知识汇总</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">liyawen</a></p>
+        <p><span>发布时间:</span>2018-10-24, 20:09:08</p>
+        <p><span>最后更新:</span>2018-10-24, 20:50:52</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/10/24/React-文档不熟悉知识汇总/" title="React 文档不熟悉知识汇总">https://liyawen.github.io/2018/10/24/React-文档不熟悉知识汇总/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://liyawen.github.io/2018/10/24/React-文档不熟悉知识汇总/　　作者: liyawen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/10/24/hello-world/">
+                    Hello World
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#React-官方文档"><span class="toc-number">1.</span> <span class="toc-text">React 官方文档</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#理解："><span class="toc-number">1.1.</span> <span class="toc-text">理解：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#了解："><span class="toc-number">1.2.</span> <span class="toc-text">了解：</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"React 文档不熟悉知识汇总　| liyawen's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/10/24/hello-world/" title="下一篇: Hello World">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/24/React-文档不熟悉知识汇总/">React 文档不熟悉知识汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/24/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018 liyawen
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 6;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
