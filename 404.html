@@ -173,7 +173,7 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="/liyawen1209@qq.com" title="Email"></a>
+                                <a class="fa Email" href="mailto:liyawen1209@qq.com" title="Email"></a>
                             
                                 <a class="fa GitHub" href="https://github.com/liyawen" title="GitHub"></a>
                             
@@ -188,7 +188,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular-js/">Angular.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PhotoShop/">PhotoShop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue-js/">Vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yelee/">Yelee</a></li></ul>
                     </div>
                 </section>
                 
@@ -241,7 +241,7 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="/liyawen1209@qq.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="mailto:liyawen1209@qq.com" title="Email"></a>
                             
                                 <a class="fa GitHub" target="_blank" href="https://github.com/liyawen" title="GitHub"></a>
                             
@@ -441,23 +441,6 @@
         }
     
 </script>
-
-    <script>
-        var originTitle = document.title;
-        var titleTime;
-        document.addEventListener("visibilitychange", function() {
-            if (document.hidden) {
-                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
-                clearTimeout(titleTime);
-            }
-            else {
-                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
-                titleTime = setTimeout(function() {
-                    document.title = originTitle;
-                }, 2000);
-            }
-        })
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>

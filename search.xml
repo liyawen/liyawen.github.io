@@ -14,13 +14,52 @@
     </entry>
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2018/10/24/hello-world/"/>
-      <url>/2018/10/24/hello-world/</url>
+      <title>学习Vue.js第一天</title>
+      <link href="/2016/06/13/image-compression/"/>
+      <url>/2016/06/13/image-compression/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<p>  Vue.js是一个数据驱动组件，由于工作需要，现开始学习，并做下学习笔记，以备今后查询解惑</p><a id="more"></a><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ol><li><p>vue.js是一个构建数据驱动的web界面的库，通过简单的api实现 <strong>响应的数据绑定</strong>  和  <strong>组合的视觉组件</strong>                </p></li><li><p>vue.js 的绑定视图DOM的方法与 angualar.js 很相似</p></li><li><p><strong>v-if</strong>  特性被称作指令。指令带有前缀 <strong>v-</strong> ，代表vue.js提供的特性，它们会给绑定的目标添加响应式的特殊行为。</p></li></ol><h2 id="组件的应用模板"><a href="#组件的应用模板" class="headerlink" title="组件的应用模板"></a>组件的应用模板</h2><pre><code>&lt;div id = &quot;app&quot;&gt;    &lt;app-nav&gt;&lt;/app-nav&gt;   &lt;app-view&gt;       &lt;app-sidebar&gt;&lt;/app-sidebar&gt;       &lt;app-content&gt;&lt;/app-content&gt;   &lt;/app-view&gt;&lt;/div&gt;</code></pre><h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><h3 id="MVVM-模式"><a href="#MVVM-模式" class="headerlink" title="MVVM 模式"></a><strong>MVVM</strong> 模式</h3><pre><code>var vm = new Vue({     // MVVM模式中描述的ViewModel       //选项(数据、模板、挂载元素、方法、生命周期钩子)})</code></pre><h3 id="创建可复用的组件构造器"><a href="#创建可复用的组件构造器" class="headerlink" title="创建可复用的组件构造器"></a>创建可复用的组件构造器</h3><pre><code>所有的Vue.js组件其实都是被扩展的vue实例 var Mycomponent = Vue.extend({        // 扩展选项 })  // 所有的 ‘Mycomponent’ 实例都将以预定义的扩展选项被创建 var myComponentInstance = new Mycomponent()</code></pre><h2 id="属性与方法"><a href="#属性与方法" class="headerlink" title="属性与方法"></a>属性与方法</h2><h3 id="代理数据属性（响应）"><a href="#代理数据属性（响应）" class="headerlink" title="代理数据属性（响应）"></a>代理数据属性（响应）</h3><pre><code>每个vue实例都会代理其 **data** 对象里的所有属性   var data = { a : 1 }   var vm = new Vue ({       el: &apos;#example&apos;       data: data   })   vm.a === data.a   // true</code></pre><h3 id="实例属性与方法（带前缀-）"><a href="#实例属性与方法（带前缀-）" class="headerlink" title="实例属性与方法（带前缀 $）"></a>实例属性与方法（带前缀 <strong>$</strong>）</h3><pre><code>vm.$data === data  // truevm.$el === document.getElementById(&apos;example&apos;)   // true// $watch 是一个方法vm.$watch(&apos;a&apos;, function (newVal, oldVal) {    //这个回调将会在 &apos;vm.a&apos; 改变后调用})</code></pre><h2 id="实例生命周期"><a href="#实例生命周期" class="headerlink" title="实例生命周期"></a>实例生命周期</h2><p>   vue.js没有“控制器”的概念，组件的自定义逻辑都是分割在各种生命周期钩子上，<br>   包括 <strong>compiled</strong>、<strong>ready</strong>、<strong>destroyed</strong>、<strong>creaded</strong></p><p><img src="http://upload-images.jianshu.io/upload_images/2145995-bc1002f101418414.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p><p><img src="http://upload-images.jianshu.io/upload_images/2145995-5dd367e30395c073.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生命周期图示"></p>]]></content>
       
       
+      <categories>
+          
+          <category> 阿里web前端框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue.js </tag>
+            
+            <tag> Angular.js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>关于 Yelee 主题背景图的压缩与优化</title>
+      <link href="/2016/05/24/image-compression/"/>
+      <url>/2016/05/24/image-compression/</url>
+      
+        <content type="html"><![CDATA[<p>目前主题里可以使用多张随机大图作背景，如果不做好图片压缩和优化，可能会严重影响网站的流畅性。下面简单介绍两种比较简单便捷的优化方案。</p><a id="more"></a><h2 id="优化说明"><a href="#优化说明" class="headerlink" title="优化说明"></a>优化说明</h2><ul><li>请使用<code>jpg</code>后缀名的背景图片；</li><li>如果可以，使用<code>渐进式JPEG</code>，让图片加载时逐渐清晰；</li><li>将图片品质尽量调低，一般可以压缩到几十kb（背景图半透明显示，因此细节并不重要）；<blockquote><p>图1 为目前主题自带背景图的分辨率和文件大小展示<br>图2 为渐进式图片加载示例</p></blockquote></li></ul><p><img src="/resources/image-compression-1.png" alt="Yelee Background info.">  <img src="/resources/image-compression-2.gif" alt="Progressive JPEGs"></p><h2 id="优化方案"><a href="#优化方案" class="headerlink" title="优化方案"></a>优化方案</h2><h3 id="PhotoShop"><a href="#PhotoShop" class="headerlink" title="PhotoShop"></a>PhotoShop</h3><ul><li>电脑上如果安装了PhotoShop，那用其来优化图片那是再好不过了</li><li>PS 打开图片 -&gt; 文件 -&gt; 存储为 Web 所用格式 -&gt; JPEG 格式，品质 0，勾选 <code>连续</code>（渐进式），最后存储，这样一张高压缩渐进式的 JPG 背景图就做好了</li></ul><p><img src="/resources/image-compression-ps.png" alt="image Compression by PhotoShop"></p><h3 id="智图"><a href="#智图" class="headerlink" title="智图"></a>智图</h3><ul><li><a href="http://zhitu.isux.us/" target="_blank" rel="noopener">智图</a> 是腾讯 ISUX 出品的在线图片优化工具，可以方便的对比优化前后的图片，同时可以自行调节图片品质，除了不能设置 <code>渐进式JPEG</code>，其他基本满足背景图片优化需求</li><li>进入网站后按提示上传图片，在调低图片品质，之后下载图片即可<blockquote><p>因为主题背景图为 <code>jpg</code>格式，其他格式请转为 <code>jpg</code> 格式后再上传到网上优化。转换的方式有很多，比如，打开图片预览后另存为jpg</p></blockquote></li></ul><p><img src="/resources/zhitu.png" alt="智图"></p><h3 id="优化方案-1"><a href="#优化方案-1" class="headerlink" title="优化方案"></a>优化方案</h3><ul><li>原图为 420kb，智图选择最低品质(10)后约为 129kb；</li><li>PhotoShop 选择最低品质 0，可以压缩到 62k，同时可以选择为 <code>渐进式JPEG</code>；</li><li>因此，有条件的话，更推荐使用 PS 压缩图片。</li></ul><h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><ol><li><strong>智图</strong>： <a href="http://zhitu.isux.us/" target="_blank" rel="noopener">http://zhitu.isux.us/</a></li><li><strong>TinyPNG</strong>： <a href="http://tinypng.com/" target="_blank" rel="noopener">http://tinypng.com/</a></li><li><strong><em>渐进式</em></strong>： by <strong>张鑫旭</strong> on <code>2013/01/07</code>: <a href="http://www.zhangxinxu.com/wordpress/2013/01/progressive-jpeg-image-and-so-on/" target="_blank" rel="noopener">http://www.zhangxinxu.com/wordpress/2013/01/progressive-jpeg-image-and-so-on/</a></li><li><strong>呆毛王示例壁纸下载</strong> <a href="http://moxfive.xyz/resources/saber.jpg" target="_blank" rel="noopener">http://moxfive.xyz/resources/saber.jpg</a></li><li><strong>最人性化的壁纸网站</strong> <a href="http://www.wallpaperpcmobile.com/" target="_blank" rel="noopener">http://www.wallpaperpcmobile.com/</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 术业有专攻 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Yelee </tag>
+            
+            <tag> PhotoShop </tag>
+            
+        </tags>
       
     </entry>
     
