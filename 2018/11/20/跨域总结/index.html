@@ -15,17 +15,18 @@
 
 
 
-<meta name="description" content="世界那么大，我要去探探">
-<meta property="og:type" content="website">
-<meta property="og:title" content="404 Not Found：该页无法显示">
-<meta property="og:url" content="https://liyawen.github.io/404.html">
+<meta name="description" content="面试时经常会被问到跨域问题，因此，在此做个详细的总结">
+<meta name="keywords" content="XMLHttoRequest,Fetch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跨域总结">
+<meta property="og:url" content="https://liyawen.github.io/2018/11/20/跨域总结/index.html">
 <meta property="og:site_name" content="liyawen&#39;s blog">
-<meta property="og:description" content="世界那么大，我要去探探">
+<meta property="og:description" content="面试时经常会被问到跨域问题，因此，在此做个详细的总结">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-10-25T03:02:30.806Z">
+<meta property="og:updated_time" content="2018-11-20T08:51:39.054Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="404 Not Found：该页无法显示">
-<meta name="twitter:description" content="世界那么大，我要去探探">
+<meta name="twitter:title" content="跨域总结">
+<meta name="twitter:description" content="面试时经常会被问到跨域问题，因此，在此做个详细的总结">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -57,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>404 Not Found：该页无法显示 | liyawen&#39;s blog</title>
+<title>跨域总结 | liyawen&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -67,7 +68,7 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -255,11 +256,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="page-" class="article article-type-page" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-跨域总结" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/404.html" class="article-date">
-      <time datetime="2018-10-25T03:02:30.806Z" itemprop="datePublished">2018-10-25</time>
+      <a href="/2018/11/20/跨域总结/" class="article-date">
+      <time datetime="2018-11-20T08:00:00.000Z" itemprop="datePublished">2018-11-20</time>
 </a>
 
 
@@ -274,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      404 Not Found：该页无法显示
+      跨域总结
     </h1>
   
 
@@ -282,8 +283,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/请求/">请求</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fetch/">Fetch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XMLHttoRequest/">XMLHttoRequest</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -291,36 +300,88 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
-
-
-          
-        
+        <p>  面试时经常会被问到跨域问题，因此，在此做个详细的总结</p>
+<a id="more"></a>
+<h1 id="跨域总结"><a href="#跨域总结" class="headerlink" title="跨域总结"></a>跨域总结</h1><h2 id="为什么会出现跨域问题"><a href="#为什么会出现跨域问题" class="headerlink" title="为什么会出现跨域问题"></a>为什么会出现跨域问题</h2><ul>
+<li>出于浏览器同源策略限制，浏览器会拒绝跨域的读操作请求。</li>
+<li>同源策略是一个用于隔离潜在恶意文件的重要安全机制。</li>
+<li>同源的定义： 如果两个页面的协议、端口、域名都相同，则同源。非同源请求，均为跨域</li>
+</ul>
+<h2 id="如何实现跨域"><a href="#如何实现跨域" class="headerlink" title="如何实现跨域"></a>如何实现跨域</h2><p>  最常用的跨域方式有以下四种：<strong>JSONP、 CORS、 postMessage、 WebSocket</strong></p>
+<h3 id="一、JSONP"><a href="#一、JSONP" class="headerlink" title="一、JSONP"></a>一、JSONP</h3><p><strong>JSONP是一种比较hack的方式，单纯的为了实现跨域请求而创造的一个trick.</strong></p>
+<p>JSONP的核心是动态添加&lt; script &gt;标签来调用服务器提供的js脚本。ajax的核心是通过XMLHttpRequest获取非本页内容。</p>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><ul>
+<li>优点： 兼容性好，能兼容到低版本IE</li>
+<li>缺点： 1.JSONP只支持GET请求；2.XMLHttpRequest相对于JSONP有着更好的错误处理机制 </li>
+</ul>
+<h4 id="实现方式（需前后端配合）"><a href="#实现方式（需前后端配合）" class="headerlink" title="实现方式（需前后端配合）"></a>实现方式（需前后端配合）</h4><p>原理： &lt; script &gt;标签的src属性是可以跨域的。传递一个<code>callback</code>参数给跨域服务端，返回数据时将这个<code>callback</code>参数作为函数名包裹要返回的json数据。</p>
+<ul>
+<li>前端</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"type/javascript"</span>&gt;</span><br><span class="line">  <span class="comment">// 回调函数</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 处理获得的数据</span></span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 请求</span></span><br><span class="line">  <span class="comment">// 第一种做法：&lt;script src="http://example.com/data.php?callback=doSomething"&gt;&lt;/script&gt;</span></span><br><span class="line">  <span class="comment">// 第二种做法</span></span><br><span class="line">  <span class="keyword">var</span> url = <span class="string">"http://example.com/data.php?callback=doSomething"</span>;</span><br><span class="line">  <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">  script.setAttribute(<span class="string">'src'</span>, url);</span><br><span class="line">  <span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(script);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>后端</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  $callback = $_GET[<span class="string">'callback'</span>]; <span class="comment">// 得到回调函数名</span></span><br><span class="line">  $data = <span class="keyword">array</span>(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>);  <span class="comment">// 要返回的数据</span></span><br><span class="line">  <span class="keyword">echo</span> $callback.<span class="string">'('</span>.json_encode($data).<span class="string">')'</span>; <span class="comment">// 输出回前端</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
     
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/11/20/跨域总结/">跨域总结</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">liyawen</a></p>
+        <p><span>发布时间:</span>2018-11-20, 16:00:00</p>
+        <p><span>最后更新:</span>2018-11-20, 16:51:39</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/11/20/跨域总结/" title="跨域总结">https://liyawen.github.io/2018/11/20/跨域总结/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://liyawen.github.io/2018/11/20/跨域总结/　　作者: liyawen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/10/24/React-文档不熟悉知识汇总/">
+                    React 文档不熟悉知识汇总
+                </a>
+            </div>
+        
+    </nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#跨域总结"><span class="toc-number">1.</span> <span class="toc-text">跨域总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么会出现跨域问题"><span class="toc-number">1.1.</span> <span class="toc-text">为什么会出现跨域问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何实现跨域"><span class="toc-number">1.2.</span> <span class="toc-text">如何实现跨域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、JSONP"><span class="toc-number">1.2.1.</span> <span class="toc-text">一、JSONP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#优缺点"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">优缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现方式（需前后端配合）"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">实现方式（需前后端配合）</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
 
@@ -338,7 +399,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"404 Not Found：该页无法显示　| liyawen's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"跨域总结　| liyawen's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -351,6 +412,26 @@
 
 
 
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/10/24/React-文档不熟悉知识汇总/" title="下一篇: React 文档不熟悉知识汇总">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/20/跨域总结/">跨域总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/24/React-文档不熟悉知识汇总/">React 文档不熟悉知识汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/image-compression/">学习Vue.js第一天</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/image-compression/">关于 Yelee 主题背景图的压缩与优化</a></li></ul>
 
 
 
