@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://liyawen.github.io">
-  <title>Tag: Angular.js | liyawen&#39;s blog</title>
+  <title>Flex布局学习 | liyawen&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="世界那么大，我要去探探">
-<meta property="og:type" content="website">
-<meta property="og:title" content="liyawen&#39;s blog">
-<meta property="og:url" content="https://liyawen.github.io/tags/Angular-js/index.html">
+  <meta name="description" content="Flex布局相关CSS的简单说明">
+<meta name="keywords" content="Flex,布局">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flex布局学习">
+<meta property="og:url" content="https://liyawen.github.io/2018/11/01/Flex布局学习/index.html">
 <meta property="og:site_name" content="liyawen&#39;s blog">
-<meta property="og:description" content="世界那么大，我要去探探">
+<meta property="og:description" content="Flex布局相关CSS的简单说明">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-11-21T06:24:54.442Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="liyawen&#39;s blog">
-<meta name="twitter:description" content="世界那么大，我要去探探">
+<meta name="twitter:title" content="Flex布局学习">
+<meta name="twitter:description" content="Flex布局相关CSS的简单说明">
   
     <link rel="alternative" href="/atom.xml" title="liyawen&#39;s blog" type="application/atom+xml">
   
@@ -143,75 +145,238 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Flex布局学习" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/13/learnVueJS/" class="archive-article-date">
-  	<time datetime="2016-06-13T11:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/13/learnVueJS/">初步接触Vue.js</a>
+    <h1 class="article-title" itemprop="name">
+      Flex布局学习
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/11/01/Flex布局学习/" class="archive-article-date">
+  	<time datetime="2018-11-01T09:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Flex布局相关CSS的简单说明<br><a id="more"></a></p>
+<h3 id="两根轴线"><a href="#两根轴线" class="headerlink" title="两根轴线"></a>两根轴线</h3><ul>
+<li><p>主轴 由 flex-direction 的值确定，值如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">flex-direction: &#123;</span><br><span class="line">  row             <span class="comment">// 横 左到右 初始值</span></span><br><span class="line">  row-reverse     <span class="comment">// 横 右到左</span></span><br><span class="line">  column          <span class="comment">// 竖 上到下</span></span><br><span class="line">  column-reverse  <span class="comment">// 竖 下到上</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>交叉轴 与主轴垂直</p>
+</li>
+</ul>
+<h3 id="Flex-容器"><a href="#Flex-容器" class="headerlink" title="Flex 容器"></a>Flex 容器</h3><p>采用了flexbox的区域就是flex容器。把一个容器的<code>display</code>属性值改为<code>flex</code>或<code>inline-flex</code>，容器中的直系子元素就会变成flex元素，所有flex元素都有以下一个初始值：</p>
+<ul>
+<li>元素排列为一行 (flex-direction 属性的初始值是 row)。</li>
+<li>元素从主轴的起始线开始。</li>
+<li>元素不会在主维度方向拉伸，但是可以缩小。</li>
+<li>元素被拉伸来填充交叉轴大小。</li>
+<li>flex-basis 属性为 auto。</li>
+<li>flex-wrap 属性为 nowrap。</li>
+</ul>
+<p>这会让你的元素呈线形排列，并且把自己的大小作为主轴上的大小。如果有太多元素超出容器，它们会溢出而不会换行。如果一些元素比其他元素高，那么元素会沿交叉轴被拉伸来填满它的大小。</p>
+<p>所以应该把每一行看作一个新的flex容器，任何空间分布都将在该行上发生，而不影响该空间分布的其他行。</p>
+<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><p>可用flex-wrap实现多行Flex容器<br>cross-start 会根据 flex-direction 的值选择等于start 或before。cross-end 为确定的 cross-start 的另一端</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">flex-wrap: &#123;</span><br><span class="line">  nowrap          <span class="comment">// 初始值，挤在一行，可能导致溢出</span></span><br><span class="line">  wrap            <span class="comment">// lex 元素被打断到多个行中,</span></span><br><span class="line">  wrap-reverse    <span class="comment">// 与wrap的行为一样，cross-start和cross-end互换。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="flex-direction-与-flex-wrap-简写成-flex-flow"><a href="#flex-direction-与-flex-wrap-简写成-flex-flow" class="headerlink" title="flex-direction 与 flex-wrap 简写成 flex-flow"></a>flex-direction 与 flex-wrap 简写成 flex-flow</h3><p><code>flex-flow: &lt;flex-direction&gt; &lt;flex-wrap&gt;</code></p>
+<h3 id="flex-gt-flex-grow-flex-shrink-flex-basis"><a href="#flex-gt-flex-grow-flex-shrink-flex-basis" class="headerlink" title="flex -&gt; flex-grow flex-shrink flex-basis"></a>flex -&gt; flex-grow flex-shrink flex-basis</h3><p>flex规定了弹性元素如何伸长或缩短以适应flex容器中的可用空间。这是一个简写属性，用来设置flex-grow, flex-shrink与flex-basis。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">flex: &#123;</span><br><span class="line">  auto      -&gt; flex: <span class="number">1</span> <span class="number">1</span> auto</span><br><span class="line">  initial   -&gt; flex: <span class="number">0</span> <span class="number">1</span> auto</span><br><span class="line">  none      -&gt; flex: <span class="number">0</span> <span class="number">0</span> auto</span><br><span class="line">  &lt;positive-number&gt;   -&gt; flex: &lt;positive-number&gt; 1 0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>flex-grow 属性定义弹性盒子项（flex item）的拉伸因子</li>
+<li>flex-shrink 属性指定了 flex 元素的收缩规则.flex 元素仅在默认宽度之和大于容器的时候才会发生收缩，其收缩的大小是依据 flex-shrink 的值</li>
+<li>flex-basis 指定了 flex 元素在主轴方向上的初始大小</li>
+</ul>
+<h4 id="元素间的对齐和空间分配"><a href="#元素间的对齐和空间分配" class="headerlink" title="元素间的对齐和空间分配"></a>元素间的对齐和空间分配</h4><ul>
+<li><p>align-items 属性可以使元素在交叉轴方向对齐</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">align-items: &#123;</span><br><span class="line">  stretch   <span class="comment">// 默认值</span></span><br><span class="line">  flex-start</span><br><span class="line">  flex-end</span><br><span class="line">  center</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>justify-content属性用来使元素在主轴方向上对齐</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">justify-content: &#123;</span><br><span class="line">  stretch</span><br><span class="line">  flex-start</span><br><span class="line">  flex-end</span><br><span class="line">  center</span><br><span class="line">  space-around</span><br><span class="line">  space-between</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的赞赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechatPay.jpeg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Vue.js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Flex</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Angular.js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">布局</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/阿里web前端框架//" class="article-tag-list-link color5">阿里web前端框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://liyawen.github.io/2018/11/01/Flex布局学习/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/11/20/跨域总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          跨域总结
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/10/28/基础页面开发步骤/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基础页面开发步骤（H5/web）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#两根轴线"><span class="toc-number">1.</span> <span class="toc-text">两根轴线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Flex-容器"><span class="toc-number">2.</span> <span class="toc-text">Flex 容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-wrap"><span class="toc-number">3.</span> <span class="toc-text">flex-wrap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-direction-与-flex-wrap-简写成-flex-flow"><span class="toc-number">4.</span> <span class="toc-text">flex-direction 与 flex-wrap 简写成 flex-flow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-gt-flex-grow-flex-shrink-flex-basis"><span class="toc-number">5.</span> <span class="toc-text">flex -&gt; flex-grow flex-shrink flex-basis</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#元素间的对齐和空间分配"><span class="toc-number">5.1.</span> <span class="toc-text">元素间的对齐和空间分配</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -234,9 +399,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
