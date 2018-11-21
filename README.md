@@ -21,3 +21,6 @@ ___
     `hexo g` 编译
     `hexo s` 开启本地服务器
 
+#### 目前改用`yilia`主题
+
+[Hexo-Theme-Yilia](https://github.com/litten/hexo-theme-yilia)该主题相对yelee更为简洁，个人喜欢简单的事物
