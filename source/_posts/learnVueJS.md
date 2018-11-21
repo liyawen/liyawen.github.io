@@ -7,7 +7,6 @@ tags:
 - Vue.js
 - Angular.js
 toc:
-permalink: image-compression
 ---
 
   Vue.js是一个数据驱动组件，由于工作需要，现开始学习，并做下学习笔记，以备今后查询解惑

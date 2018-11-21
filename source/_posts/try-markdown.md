@@ -7,11 +7,9 @@ tags:
 - Yelee
 - PhotoShop
 toc:
-permalink: image-compression
 ---
 
 目前主题里可以使用多张随机大图作背景，如果不做好图片压缩和优化，可能会严重影响网站的流畅性。下面简单介绍两种比较简单便捷的优化方案。
-
 
 <!-- more -->
 ## 优化说明

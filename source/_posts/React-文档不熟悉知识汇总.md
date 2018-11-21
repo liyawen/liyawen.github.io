@@ -1,11 +1,18 @@
 ---
 title: React 文档不熟悉知识汇总
 date: 2018-10-24 20:09:08
-tags:
-description: "总结了对文档内出现不熟知的知识点，希望之后能一一深入学习理解"
+tags: 
+- 前端
+- React
+categories: 
+- 知识点总结
 preload_comment: true
 show_count: false
 ---
+
+ 总结了对文档内出现不熟知的知识点，希望之后能一一深入学习理解
+
+<!-- more -->
 
 ## React 官方文档
 
