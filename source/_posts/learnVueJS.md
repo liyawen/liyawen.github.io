@@ -1,5 +1,5 @@
 ---
-title: 学习Vue.js第一天
+title: 初步接触Vue.js
 date: 2016-06-13 19:20
 categories:
 - 阿里web前端框架
