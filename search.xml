@@ -3,6 +3,25 @@
   
     
     <entry>
+      <title>AJAX与Fetch</title>
+      <link href="/2018/11/22/AJAX%E4%B8%8EFetch/"/>
+      <url>/2018/11/22/AJAX%E4%B8%8EFetch/</url>
+      
+        <content type="html"><![CDATA[<p>之前总是用封装好的异步请求方法，对最原始的AJAX和Fetch并不是很熟知，现在整理一波</p><a id="more"></a><h2 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h2><p>AJAX 是异步的JavaScript和XML(Asynchronous JavaScript And XML)，简单来说，就是使用XMLHttpRequest对象与服务器通信。</p><ul><li>AJAX可以使用JSON、XML、HTML、text等格式发送和接受数据</li><li>因为它的“异步”特性，可以在不刷新页面情况下与服务器通信</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> AJAX </tag>
+            
+            <tag> Fetch </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>跨域总结</title>
       <link href="/2018/11/20/%E8%B7%A8%E5%9F%9F%E6%80%BB%E7%BB%93/"/>
       <url>/2018/11/20/%E8%B7%A8%E5%9F%9F%E6%80%BB%E7%BB%93/</url>
