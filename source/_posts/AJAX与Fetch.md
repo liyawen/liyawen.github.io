@@ -26,7 +26,7 @@ AJAX 是异步的JavaScript和XML(Asynchronous JavaScript And XML)，简单来�
 * 3 (交互) or (正在处理请求)
 * 4 (完成) or (请求已完成并且响应已准备好)
 
-### POST 请求j几种编码方式（Content-type）
+### POST 请求几种编码方式（Content-type）
 
 * Content-Type: application/x-www-form-urlencoded (default):
 
